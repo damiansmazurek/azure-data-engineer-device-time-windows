@@ -20,6 +20,7 @@ EVENTHUB_NAME = os.environ.get('EVENTHUB_NAME')
 WINDOW_SIZE = int(os.environ.get('WINDOW_SIZE'))
 WINDOW_INTERVAL = int(os.environ.get('WINDOW_INTERVAL'))
 TIME_INTERVAL = int(os.environ.get('TIME_INTERVAL'))
+BATCH_MESSAGES_NUMBER = int(os.environ.get('BATCH_MESSAGES_NUMBER'))
 
 # Create emulator
 info('Creating device emulator')
@@ -30,10 +31,12 @@ while True:
     info('Start sending window')
     while (time.time()-time_to_live < WINDOW_SIZE):
         seed(time.time())
-        event = {"I": 100* random(), "U": 30* random()+210, "Tm": 150* random() }
-        emulator.send_data(event)
+        batchData = []
+        for i in range(BATCH_MESSAGES_NUMBER):
+            batchData.add({"I": 100* random(), "U": 30* random()+210, "Tm": 150* random() })
+        emulator.send_batch_data(batchData)
         time.sleep(TIME_INTERVAL)
-        info('Entity sended: %s', event)
+        info('Entity sended: %s', batchData)
     info('Sending window ended - waiting for next %d s',WINDOW_INTERVAL)
     time.sleep(WINDOW_INTERVAL)
         
