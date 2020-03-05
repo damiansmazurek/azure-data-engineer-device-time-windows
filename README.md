@@ -1,2 +1,5 @@
-# azure-data-engineer-device-time-windows
-Event generator for homework week 7 Azure Data Engineer program by Szkola Chmury
+# Events generator for Event Hub
+
+1. Clone project.
+2. Build docker container.
+3. Run container.
