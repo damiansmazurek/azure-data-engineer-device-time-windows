@@ -36,7 +36,7 @@ while True:
             batchData.add({"I": 100* random(), "U": 30* random()+210, "Tm": 150* random() })
         emulator.send_batch_data(batchData)
         time.sleep(TIME_INTERVAL)
-        info('Entity sended: %s', batchData)
+        info('Entities sended: %s', batchData)
     info('Sending window ended - waiting for next %d s',WINDOW_INTERVAL)
     time.sleep(WINDOW_INTERVAL)
         
