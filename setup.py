@@ -33,7 +33,7 @@ while True:
         seed(time.time())
         batchData = []
         for i in range(BATCH_MESSAGES_NUMBER):
-            batchData.add({"I": 100* random(), "U": 30* random()+210, "Tm": 150* random() })
+            batchData.append({"I": 100* random(), "U": 30* random()+210, "Tm": 150* random() })
         emulator.send_batch_data(batchData)
         time.sleep(TIME_INTERVAL)
         info('Entities sended: %s', batchData)
