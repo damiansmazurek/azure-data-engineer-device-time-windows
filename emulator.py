@@ -17,6 +17,6 @@ class DeviceEmulator:
         batchData = EventDataBatch()
         for item in dataBatch:
             message = {"deviceid": self.deviceId, "timestamp": time.time(), "data": item}
-            batchData.add(EventData(str(message)))
+            batchData.add(EventData(json.dumps(message)))
         self.client.send_batch(batchData)
         
