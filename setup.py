@@ -9,6 +9,7 @@ import time
 from logging import log, info, debug, basicConfig, DEBUG, INFO
 from random import seed, random
 from emulator import DeviceEmulator
+import json
 
 #logging configuration
 basicConfig(format='%(asctime)s; %(levelname)s: %(message)s', level=INFO)
