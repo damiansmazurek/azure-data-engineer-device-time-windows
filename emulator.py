@@ -1,7 +1,8 @@
 import uuid
 import time
 from azure.eventhub import EventHubProducerClient, EventDataBatch, EventData
- 
+import json
+
 class DeviceEmulator:
     def __init__(self, connectionstring, eventhub_name):
         self.client = EventHubProducerClient.from_connection_string(connectionstring, eventhub_name=eventhub_name )
