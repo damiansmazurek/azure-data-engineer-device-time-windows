@@ -17,7 +17,7 @@ class DeviceEmulator:
         # Send batch data to eventhub
         batchData = EventDataBatch()
         for item in dataBatch:
-            message = {"deviceid": self.deviceId, "timestamp": time.time(), "data": item}
+            message = {"deviceid": str(self.deviceId), "timestamp": time.time(), "data": item}
             batchData.add(EventData(json.dumps(message)))
         self.client.send_batch(batchData)
         
